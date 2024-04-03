@@ -6,6 +6,12 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<!-- datasource connection pool -->
+	<!-- 1. JDBC Driver 로딩
+		 2. DB정보를 기반으로 DB접속 => Connection
+		 3. PrepareStatement 객체 생성
+		 4. SQL 실행
+		 5. 결과를 반환
+		 6. 자원해제 -->
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 		<property name="driverClassName"
 			value="oracle.jdbc.OracleDriver" />

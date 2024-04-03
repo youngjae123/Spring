@@ -150,7 +150,7 @@
 		</dependency>
 
 		<!-- DB -->
-
+		<!-- ojdbc8이 있을경우 spring-jdbc가 무조건 있어야 한다  -->
 		<!-- ojdbc8 -->
 		<dependency>
 			<groupId>com.oracle.database.jdbc</groupId>
