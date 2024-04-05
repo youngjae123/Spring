@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form th:action="@{/empInsert}" method="post" th:object="${empVO}">
+		<div>
+			<label>사원번호
+				<input type="text"  readonly="readonly" th:field="*{employeeId}"><!-- th:filed = th:object 안에껄 가져오기 위해 씀 (변수가 가지고 있는 필드 선택해서 부름)-->
+			</label>
+		</div>
+		<div>
+			<label>이름
+				<input type="text" th:field="*{lastName}">
+			</label>
+		</div>
+		<div>
+			<label>이메일
+				<input type="text" th:field="*{email}">
+			</label>
+		</div>
+		<div>
+			<label>입사일
+				<input type="date" th:field="*{hireDate}">
+			</label>
+		</div>
+		<div>
+			<label>업무
+				<input type="text" th:field="*{jobId}">
+			</label>
+		</div>
+		<div>
+			<label>급여
+				<input type="number" th:field="*{salary}"> 
+			</label>
+		</div>
+		<div>
+			<button type="submit">등록</button> 
+		</div>
+	</form>
+</body>
+</html>
