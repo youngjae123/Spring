@@ -53,7 +53,7 @@ public class EmpController {
 	}
 	//등록- 처리 =>POST
 	@PostMapping("empInsert")
-	public String empInserProocess(EmpVO empVO) {
+	public String empInserProcess(EmpVO empVO) {
 		int eid = empService.empInsert(empVO);
 		String uri = null;
 		if(eid > -1) {
