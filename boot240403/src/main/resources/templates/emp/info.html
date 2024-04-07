@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>사원 정보 조회</title>
+</head>
+<body>
+	<div>
+		<div>
+			<label>사원번호
+				<input type="text" th:value="${empInfo.employeeId}" readonly="readonly">
+			</label>
+		</div>
+		<div>
+			<label>이름
+				<input type="text" th:value="${empInfo.lastName}" readonly="readonly">
+			</label>
+		</div>
+		<div>
+			<label>이메일
+				<input type="text" th:value="${empInfo.email}" readonly="readonly">
+			</label>
+		</div>
+		<div>
+			<label>입사일
+				<input type="date" th:value="${#dates.format(empInfo.hireDate,'yyyy-MM-dd')}" readonly="readonly">
+			</label>
+		</div>
+		<div>
+			<label>업무
+				<input type="text" th:value="${empInfo.jobId}" readonly="readonly">
+			</label>
+		</div>
+		<div>
+			<label>급여
+				<input type="number" th:value="${empInfo.salary}" readonly="readonly"> 
+				<!-- <span>[[ ${#numbers.formatInteger(empInfo.salary,3,'COMMA')} ]]</span> -->
+			</label>
+		</div>
+		<div>
+			<button type="button" th:onclick ="|location.href='@{/empList}'|">목록</button> 
+			<!-- <button type="button" th:onclick ="location.href=empList"></button> -->
+		</div>
+	</div>
+</body>
+</html>
