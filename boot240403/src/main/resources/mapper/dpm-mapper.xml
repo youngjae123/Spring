@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.yedam.app.emp.mapper.DpmMapper">
+  <select id="selectDpmAll" resultType="DpmVO">
+  	select  department_id
+        	,department_name
+       		 ,manager_id
+	       	 ,location_id
+	from    departments
+  </select>
+  <select id="selectDpm" resultType="DpmVO">
+  select  department_id
+        	,department_name
+       		 ,manager_id
+	       	 ,location_id
+	from    departments
+	where	department_id = #{departmentId}
+  </select>
+  
+  <insert id="insertDpm">
+  <selectKey keyProperty="departmentId"
+  			resultType="Integer"
+  			order="BEFORE">
+  SELECT NVL(MAX(department_id),0)+1
+  FROM	departments			
+  </selectKey>
+  insert into departments
+  			(
+  			department_id
+        	,department_name
+       		 ,manager_id
+	       	 ,location_id
+	       	 )
+  values	(
+  			#{departmentId}
+  			,#{departmentName}
+  			,#{managerId}
+  			,#{locationId}
+  			)
+  </insert>
+  
+  <update id="updateDpm" parameterType="DpmVO">
+  update	departments
+  set		department_name = #{departmentName}
+  			,manager_id = #{managerId}
+  			,location_id = #{locationId}
+  where		department_id = #{departmentId}
+  </update>
+  
+  <delete id="depeteDpm" parameterType="DpmVO">
+  delete department_id = #{departmentId}
+  </delete>
+  </mapper>

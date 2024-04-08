@@ -47,13 +47,13 @@ public class EmpController {
 	
 	//등록- 페이지 => GET
 	@GetMapping("empInsert")
-	public String empInserForm(Model model) {
+	public String empInsertForm(Model model) {
 		model.addAttribute("empVO", new EmpVO());
 		return "emp/insert";
 	}
 	//등록- 처리 =>POST
 	@PostMapping("empInsert")
-	public String empInserProocess(EmpVO empVO) {
+	public String empInserProcess(EmpVO empVO) {
 		int eid = empService.empInsert(empVO);
 		String uri = null;
 		if(eid > -1) {
