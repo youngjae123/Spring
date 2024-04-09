@@ -1,4 +1,4 @@
-package com.yedam.app.serviceImpl;
+package com.yedam.app.dpm.serviceImpl;
 
 import java.util.HashMap;
 import java.util.List;

@@ -2,7 +2,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-  <mapper namespace="com.yedam.app.emp.mapper.DpmMapper">
+  <mapper namespace="com.yedam.app.dpm.mapper.DpmMapper">
   <select id="selectDpmAll" resultType="DpmVO">
   	select  department_id
         	,department_name

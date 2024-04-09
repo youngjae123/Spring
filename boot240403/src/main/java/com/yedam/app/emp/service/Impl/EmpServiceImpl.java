@@ -52,7 +52,7 @@ public class EmpServiceImpl implements EmpService{
 		map.put("result", isSuccessed);
 		// map.terget = { employeeId : '', last:'', ...} 
 		map.put("target", empVO);
-		return null;
+		return map;
 	}
 
 	@Override
@@ -66,6 +66,11 @@ public class EmpServiceImpl implements EmpService{
 		
 		
 		return map;
+	}
+
+	@Override
+	public EmpVO getEmpId() {
+		return empMapper.getEmpId();
 	}
 	
 	
