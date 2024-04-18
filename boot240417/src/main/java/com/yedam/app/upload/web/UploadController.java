@@ -1,5 +1,10 @@
 package com.yedam.app.upload.web;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,6 +28,19 @@ public class UploadController {
 			System.out.println("original : "+ originalName);
 			String fileName = originalName.substring(originalName.lastIndexOf("//")+1);
 			System.out.println("fileName : " + fileName);
+			
+			String uploadPath = "C:\\upload";
+			String saveName = uploadPath + File.separator + fileName;// File.separator = 자바가 인식하는 경로 구분자
+			System.out.println("saveName: " + saveName);
+
+			Path savePath = Paths.get(saveName); // 실제 경로로 변환하는 작업
+			
+			
+			try {
+				image.transferTo(savePath); //transferTo = 실제 파일 저장하는 메서드
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 		return "upload";
 	}
