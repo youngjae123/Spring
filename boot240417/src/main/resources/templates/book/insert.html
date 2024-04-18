@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+	  layout:decorate="~{common/layouts/default_layout}"
+	  layout:fragment="Content">
+	<div>
+		<form name="InsertForm" th:action="@{/bookInsert}" method="post" th:object="${book}"><!-- object = 컨트롤에 bookInsertForm에 addAttribute에 지정한 이름 -->
+			<h3>도서 등록</h3>
+			<table id="form" class="table">
+				<tr>
+					<th>도서번호</th>
+					<td><input type="text" th:field="*{bookNo}" readonly></td>
+					<!-- field = object에 선언된 클레스에 있는걸 꺼냄 ->id, name, value를 채움 -->
+					<!-- th:field를 안쓸 경우 =>  <td><input type="text" id="bookNo" name="bookNo" th:value="${book.bookNo}" readonly></td> -->
+				</tr>
+				<tr>
+					<th>도서명</th>
+					<td><input type="text" th:field="*{bookName}"></td>
+				</tr>
+				<tr>
+					<th>표지</th>
+					<td><input type="text" th:field="*{bookCoverImg}"></td>
+				</tr>
+				<tr>
+					<th>출판일자</th>
+					<td><input type="date" th:field="*{bookDate}"></td>
+				</tr>
+				<tr>
+					<th>금액</th>
+					<td><input type="text" th:field="*{bookPrice}"></td>
+				</tr>
+				<tr>
+					<th>출판사</th>
+					<td><input type="text" th:field="*{bookPublisher}"></td>
+				</tr>
+				<tr>
+					<th>도서소개</th>
+					<td><input type="text" th:field="*{bookInfo}"></td>
+				</tr>
+			</table>
+			<div>
+				<button type="submit">등록</button>
+				<button type="button">조회</button>
+			</div>
+			<script>
+				document.querySelector('form[name="InsertForm"]').addEventListener('submit', bookInsert);
+				
+				function bookInsert(event){
+						event.preventDefault();
+					
+					let name = document.getElementById('bookName');
+					if(name.value == ''){
+						alert('도서명이 입력되지 않았습니다.');
+						name.focus();
+						return;
+					}
+					InsertForm.submit();
+				}
+			</script>
+		</form>
+	</div>
+</html>

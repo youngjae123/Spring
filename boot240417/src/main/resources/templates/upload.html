@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>이미지 업로드</title>
+</head>
+<body>
+	<form th:action="@{/formUpload}" method="post" enctype="multipart/form-data"> <!-- enctype 꼭 변경해야한다. -->
+		<input type="file" name="images">
+		<button type="submit">전송 </button>
+	</form>
+</body>
+</html>

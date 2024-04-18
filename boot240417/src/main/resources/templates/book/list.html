@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+	  layout:decorate="~{common/layouts/default_layout}"
+	  layout:fragment="Content">
+<!-- layout => https://mvnrepository.com/artifact/nz.net.ultraq.thymeleaf/thymeleaf-layout-dialect/3.2.1 -> github에서 찾음 -->
+	  <!-- decorate 파일이 찾아가는 경로 -->
+	<!-- prefix=(/boot240417/src/main/resources/templates/) decorate=(common/layouts/default_layout) suffix=(.html) -->
+
+	<div class="container">
+		<h3>도서 조회/수정</h3>
+		<table style="border: solid 2px;" class="table">
+			<thead>
+				<tr>
+					<th>도서번호</th>
+					<th>도서명</th>
+					<th>표지</th>
+					<th>출판일자</th>
+					<th>금액</th>
+					<th>출판사</th>
+					<th>도서소개</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="info :${books}"><!--th:each="내맘대로 정하는 이름 :${컨트롤러에 addAttribute에서 정한 이름}"  -->
+					<td>[[${info.bookNo}]]</td>
+					<td>[[${info.bookName}]]</td>
+					<!-- th:src="@{/path}" localhost:8080/yedam/path or th:src="@{/info(id=100, name =Hong)}" localhost:8080/yedam/info?id=100&name=Hong or th:src="@{/images/{fileName=}(fileName=${books.image})}" -->
+					<td><img style="height: 100px; " th:src="@{/images/{fileName}(fileName=${info.bookCoverImg})}"></td>
+					
+					<!-- ppt= 스프링부트V5(18P)참조 혹은 Thymeleaf에 api 에서 Latest release-> thymeleaf 3.1.2.RELEASE 에서 검색해서 찾는다 -->
+					<td>[[${#dates.format(info.bookDate,'yyyy/MM/dd')}]]</td> <!-- <td>[[${#dates.format(info.bookDate,'yyyy년MM월dd일')}]]</td> -->
+					
+					
+					<td>[[${#numbers.formatInteger(info.bookPrice,3,'COMMA')}]]</td>
+					<td>[[${info.bookPublisher}]]</td>
+					<td>[[${info.bookInfo}]]</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>	
+</html>

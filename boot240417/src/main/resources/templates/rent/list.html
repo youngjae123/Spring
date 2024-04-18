@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{common/layouts/default_layout}"
+	layout:fragment="Content">
+<head>
+<meta charset="UTF-8">
+<title>renList</title>
+</head>
+<body>
+	<h3>도서별 대여매출현황</h3>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>도서번호</th>
+				<th>도서명</th>
+				<th>대여총계</th>
+				<th>대여횟수</th>
+			</tr>
+		</thead>
+		<tbody>
+			 <th:block th:each="rent : ${rent}">
+				<tr>
+					<td th:text="${rent.bookNo}" />
+					<td th:text="${rent.bookName}" />
+					<td th:text="${rent.rentTotalPrice}" />
+					<td th:text="${rent.rentCount}" />
+				</tr>
+				</th:bolck> 
+		</tbody>
+	</table>
+</body>
+</html>

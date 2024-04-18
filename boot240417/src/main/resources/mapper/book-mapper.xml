@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- interface mapper를 같이 켜놓고 작성할것 -->
+<mapper namespace="com.yedam.app.book.mapper.BookMapper">
+<!-- namespace = interface Mapper의 package명 + interface 명 -->
+
+	<!-- 도서 전체조회 -->
+<!-- public List<BookVO> selectAllList();-->
+	<select id="selectAllList" resultType="BookVO">
+	SELECT	book_no,
+       		 book_name,
+       		 book_coverimg,
+       		 book_date,
+       		 book_price,
+       		 book_publisher,
+       		 book_info
+	FROM    book_tbl_06
+	ORDER BY book_no
+	</select>
+	
+	<!-- 도서번호조회  -->
+	<select id="getBookNo" resultType="BookVO">
+		SELECT NVL(MAX(book_no),0) + 1 as book_no
+		FROM    book_tbl_06
+	</select>
+	
+	<!-- 도서등록 -->
+	<insert id="insertBook" parameterType="BookVO"><!-- insert는 resultType이 정해저있어서 해줄필요 없음 -->
+		INSERT INTO book_tbl_06
+				(book_no,
+       			 book_name,
+       			 book_coverimg,
+       			 book_date,
+       			 book_price,
+       			 book_publisher,
+       			 book_info)
+       			 <!-- mybatis는 #을 이용해서 값을 불러옴 / #{} 파라미터 타입이 가지고 있는 필드-->
+       	VALUES	(
+       				#{bookNo},
+       				#{bookName},
+       				#{bookCoverImg},
+       				#{bookDate},
+       				#{bookPrice},
+       				#{bookPublisher},
+       				#{bookInfo}
+       			)
+		
+	
+	</insert>
+</mapper>

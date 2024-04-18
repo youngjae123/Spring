@@ -9,7 +9,6 @@
 	
 	<logger name="jdbc" level="OFF" />
 	<logger name="jdbc.sqlonly" level="OFF" />
-	//주로사용 jdbc.sqltiming(SQL문 출력 ), jdbc.resultsettable(테이블형태로 보여줌) 그외 나머지 다 OFF
 	<logger name="jdbc.sqltiming" level="DEBUG" />
 	<logger name="jdbc.audit" level="OFF" />
 	<logger name="jdbc.resultset" level="OFF" />
