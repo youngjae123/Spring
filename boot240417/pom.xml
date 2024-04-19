@@ -82,8 +82,22 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-aop</artifactId>
-			<!-- <version>2.7.18</version> 생략해도 괜찮지만 버전은 맞아야 한다.-->
+			<!-- <version>2.7.18</version> 생략해도 괜찮지만 버전은 맞아야 한다. -->
 		</dependency>
+		<!-- spring security -->
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity5 -->
+		<dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-springsecurity5</artifactId>
+			<version>3.0.5.RELEASE</version>
+		</dependency>
+
 
 	</dependencies>
 

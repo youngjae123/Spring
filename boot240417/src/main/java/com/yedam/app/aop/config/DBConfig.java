@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class DBConfig {
 	
-	@Bean
+	@Bean //빈 등록
 	public TransactionManager transactionManager(DataSource dataSource) {//TransactionManager는 별도로 빈을 등록해야 함 그러기 위해선 @EnableTransactionManagement 필요
 		return new DataSourceTransactionManager(dataSource);
 	}
